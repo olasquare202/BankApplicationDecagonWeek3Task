@@ -21,22 +21,6 @@ namespace BankApplication.Utilities
             Regex regex = new Regex("/((^090)([23589]))|((^070)([1-9]))|((^080)([2-9]))|((^081)([0-9]))(d{7})");
             return regex.IsMatch(phone) && phone.Length == 11;
 
-            //(@"[0-9]{11,}$")
-
-            //;
-
-            //public bool IsStringInvalid(string text)
-            //{
-            //    if (String.IsNullOrEmpty(text))
-            //    {
-            //        if (text != null && !Regex.IsMatch(text, textCodeFormat) && text.Length > 4)
-            //        {
-            //            return true;
-            //        }
-            //    }
-            //    return false;
-            //}
-
         }
 
         public static bool IsValidPassword(string password)

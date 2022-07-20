@@ -14,10 +14,7 @@ namespace BankApplication.UI
             get => _bankAccountService ??= new BankAccountService();
         }
         private static ITransactionService? _transactionService;
-        //public static void PrintLine(string[] buf)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        
 
         public static ITransactionService transactionService
         {
@@ -117,15 +114,7 @@ namespace BankApplication.UI
                     Menu(customer);
 
 
-                    //bankAccount.AccountBalance = amount;
-
-                    //Console.WriteLine("Enter Account number");
-                    //var accountnumber = Convert.ToInt32(Console.ReadLine());
-
-                    //check if accout number exists in the list of account numbers
-                    //if it does call your deposit function
-
-                    //deposit(amount, accountnumber, TransactionType.Deposit);
+                    
                 }
 
                 
@@ -158,8 +147,7 @@ namespace BankApplication.UI
                     Console.ReadLine();
                 }
                 Menu(customer);
-                //Console.Write("Enter amount: ");
-                //string amount = Console.ReadLine();
+               
             }
             else if (option == "3")
             {
@@ -266,7 +254,7 @@ namespace BankApplication.UI
                 while (!bankAccountService.VerifyBankAccountByAccountNumber(senderAccountNo))
                 {
                     Console.WriteLine("Account number does not exist.");
-                    //Console.WriteLine("Please Enter Your Own Account Number");
+                   
                     senderAccountNo = Console.ReadLine();
                 }
                 Console.Write("Enter receiver's account number: ");
@@ -307,8 +295,10 @@ namespace BankApplication.UI
             else if (option == "6")
             {
                 
+
+
                 TableGenerator.PrintLine();
-                Console.WriteLine();
+               // Console.WriteLine();
                 List<BankAccount> bankAccounts = _bankAccountService.GetAllBankAccountByCustomerId(customer.Id);
                 string[] header = new string[4]
                 {
@@ -317,12 +307,15 @@ namespace BankApplication.UI
                     "ACCOUNT TYPE",
                     "BALANCE"
                 };
-                //Console.WriteLine();
+
+                
+                BankApplication.Models.TableGenerator.PrintLine();
                 BankApplication.Models.TableGenerator.PrintRow(header);
+                BankApplication.Models.TableGenerator.PrintLine();
                 var buf = new string[4];
-                foreach (BankAccount bankAccount in bankAccounts) //for (var i = 0; i < n; i++)
+                foreach (BankAccount bankAccount in bankAccounts) 
                 {
-                    Console.WriteLine(); //string[] newRow = new string[6]
+                    Console.WriteLine(); 
                     
                    
                     Console.WriteLine();
@@ -332,13 +325,19 @@ namespace BankApplication.UI
                     buf[1] = bankAccount.AccountNmuber;
                     buf[2] = bankAccount.AccountType.ToString();
                     buf[3] = bankAccount.AccountBalance.ToString();
+
+                    BankApplication.Models.TableGenerator.PrintLine();
+                    BankApplication.Models.TableGenerator.PrintRow(buf);
+                    BankApplication.Models.TableGenerator.PrintLine();
                 }
 
-                BankApplication.Models.TableGenerator.PrintLine();
-                BankApplication.Models.TableGenerator.PrintRow(buf);
-                BankApplication.Models.TableGenerator.PrintLine();
+
+                Console.WriteLine("\n\nPress Enter to Continue");
                 Console.ReadLine();
                 Menu(customer);
+
+                //Console.ReadLine();
+                //Menu(customer);
 
                 
             }
@@ -382,41 +381,8 @@ namespace BankApplication.UI
                     BankApplication.Models.TableGenerator.PrintRow(buf);
                     BankApplication.Models.TableGenerator.PrintLine();
                 }
-                //Console.WriteLine($"Date: {transaction.CreatedDate}");
-                //    Console.WriteLine($"Purpose of transaction: {}");
-                //    Console.WriteLine($"Amount: {transaction.Amount}");
-                //    Console.WriteLine($"Account Balance: {transaction.Balance}");
-
                 
-
-
-
-
-                //DATE
-                //DESCRIPTION
-                //AMOUNT
-                //BALANCE
-                //Console.Write("Enter your account number: ");
-                //string? accountNo = Console.ReadLine();
-                //while (!bankAccountService.VerifyBankAccountByAccountNumber(accountNo))
-                //{
-                //    Console.WriteLine("Account number does not exist.");
-                //    //Console.WriteLine("Please Enter Your Own Account Number");
-                //    accountNo = Console.ReadLine();
-                //}
-                //BankAccount account = bankAccountService.GetBankAccountByAccountNumber(accountNo);
-                //List<Transaction> transactions = transactionService.GetTransactionstByAccountId(account.Id);
-                //foreach(Transaction transaction in transactions)
-
-                //{
-
-                //    Console.WriteLine($"Date: {transaction.CreatedDate}");
-                //    Console.WriteLine($"Purpose of transaction: {transaction.Description}");
-                //    Console.WriteLine($"Amount: {transaction.Amount}");
-                //    Console.WriteLine($"Account Balance: {transaction.Balance}");
-                //    Console.WriteLine();
-                    
-                //}
+                
                 Console.WriteLine("\n\nPress Enter to Continue");
                 Console.ReadLine();
                 Menu(customer);
