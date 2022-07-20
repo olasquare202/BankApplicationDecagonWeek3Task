@@ -350,6 +350,7 @@ namespace BankApplication.UI
                 Console.Write("Enter your account number: ");
                 string? accountNo = Console.ReadLine();
                 string[] header = new string[4]
+
                 {
                     "DATE",
                     "DESCRIPTION",
@@ -357,8 +358,10 @@ namespace BankApplication.UI
                     "BALANCE"
                 };
                 //Console.WriteLine();
+                BankApplication.Models.TableGenerator.PrintLine();
                 BankApplication.Models.TableGenerator.PrintRow(header);
-                var buf = new string[4];
+                BankApplication.Models.TableGenerator.PrintLine();
+
                 while (!bankAccountService.VerifyBankAccountByAccountNumber(accountNo))
                 {
                     Console.WriteLine("Account number does not exist.");
@@ -369,19 +372,22 @@ namespace BankApplication.UI
                 List<Transaction> transactions = transactionService.GetTransactionstByAccountId(account.Id);
                 foreach (Transaction transaction in transactions)
                 {
+                    var buf = new string[4];
                     buf[0] = transaction.CreatedDate.ToString();
                     buf[1] = transaction.Description;
                     buf[2] = transaction.Amount.ToString();
                     buf[3] = transaction.Balance.ToString();
+
+                    BankApplication.Models.TableGenerator.PrintLine();
+                    BankApplication.Models.TableGenerator.PrintRow(buf);
+                    BankApplication.Models.TableGenerator.PrintLine();
                 }
                 //Console.WriteLine($"Date: {transaction.CreatedDate}");
                 //    Console.WriteLine($"Purpose of transaction: {}");
                 //    Console.WriteLine($"Amount: {transaction.Amount}");
                 //    Console.WriteLine($"Account Balance: {transaction.Balance}");
 
-                BankApplication.Models.TableGenerator.PrintLine();
-                BankApplication.Models.TableGenerator.PrintRow(buf);
-                BankApplication.Models.TableGenerator.PrintLine();
+                
 
 
 
