@@ -15,23 +15,36 @@ namespace BankApplication.UI
         }
         public static void Run()
         {
+            bool redo = false;
             Header();
-            Console.WriteLine();
-            Console.WriteLine("Would you like to Register with us? Kindly Press 1");
-            Console.WriteLine("Would you like to Login into your account? Kindly Press 2");
-            string option = Console.ReadLine();
-            if(option == "1")
+            do
             {
-                Console.Clear();
-                Header();
-                RegistrationUI.Register();
-            }
-            else if (option == "2")
-            {
-                Console.Clear();
-                Header();
-                LoginUI.Authentication();
-            }
+
+                
+                Console.WriteLine();
+                Console.WriteLine("Would you like to Register with us? Kindly Press 1");
+                Console.WriteLine("Would you like to Login into your account? Kindly Press 2");
+                string option = Console.ReadLine();
+                if (option == "1")
+                {
+                    Console.Clear();
+                    Header();
+                    RegistrationUI.Register();
+                }
+                else if (option == "2")
+                {
+                    Console.Clear();
+                    Header();
+                    LoginUI.Authentication();
+                }
+                else
+                {
+                    
+                    redo = true;
+                    Console.WriteLine($"{option} is invalid! Press 1 or 2");
+                }
+            } while (redo);
+
         }
     }
 }

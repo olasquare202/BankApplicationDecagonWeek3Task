@@ -15,7 +15,7 @@ namespace BankApplication.UI
             string? email = Console.ReadLine();
             while (!Validation.IsValidEmail(email))
             {
-                Console.WriteLine("{0} is not valid! ARE YOU MAD? Please be guided", email);
+                Console.WriteLine("{0} is not valid! Please be guided", email);
                 Console.Write("Enter email: ");
                 email = Console.ReadLine();
             }

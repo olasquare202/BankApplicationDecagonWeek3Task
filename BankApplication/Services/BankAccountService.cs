@@ -46,7 +46,7 @@ namespace BankApplication.Services
         public BankAccount WithdrawFromBankAccount(BankAccount bankAccount, decimal amount)
         {
             
-            if (bankAccount.AccountType == AccountType.Current)
+            if (bankAccount.AccountType == AccountTypes.Current)
             {
                 if (amount > 0 && bankAccount.AccountBalance - amount > 1000)
                 {

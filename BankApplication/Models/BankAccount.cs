@@ -13,11 +13,11 @@ namespace BankApplication.Models
         public int CustomerId { get; set; }
         public string AccountNmuber { get; set; }
         public decimal AccountBalance { get; set; }
-        public AccountType AccountType { get; set; }
+        public AccountTypes AccountType { get; set; }
         public static string AccountNumber { get; internal set; }
 
         public static int _id;
-        public BankAccount(int customerId, string accountNumber, AccountType accountType)
+        public BankAccount(int customerId, string accountNumber, AccountTypes accountType)
         {
             Id = ++_id;
             IsActive = true;

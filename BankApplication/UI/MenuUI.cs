@@ -65,7 +65,7 @@ namespace BankApplication.UI
                 if (typeOfAccount == "1")
                 {
                     string accountNumber = AccountNumberGenerator.AccountGenerator();
-                    BankAccount bankAccount = new BankAccount(customer.Id, accountNumber, AccountType.Savings);
+                    BankAccount bankAccount = new BankAccount(customer.Id, accountNumber, AccountTypes.Savings);
 
                      Console.WriteLine("Enter your Initial Deposit");
 
@@ -76,7 +76,7 @@ namespace BankApplication.UI
                         amount = Console.ReadLine();
                     }
                     bankAccount.AccountBalance = Convert.ToDecimal(amount);
-                    Console.WriteLine("Awesome! Your Savings Account Was Successfully Created, Your Account details is:");
+                    Console.WriteLine("Awesome! Your Savings Account Was Successfully Created, Your Account number is:");
                     Console.WriteLine("Account Number: {0}", accountNumber);
                     bankAccountService.CreateBankAccount(bankAccount);
                     Transaction transaction = new Transaction(bankAccount.Id,"Initial Deposit", bankAccount.AccountBalance, TransactionType.Deposit,DateTime.Now,bankAccount.AccountBalance);
@@ -92,7 +92,7 @@ namespace BankApplication.UI
                 {
 
                     string accountNumber = AccountNumberGenerator.AccountGenerator();
-                    BankAccount bankAccount = new BankAccount(customer.Id, accountNumber, AccountType.Current);
+                    BankAccount bankAccount = new BankAccount(customer.Id, accountNumber, AccountTypes.Current);
 
                     Console.WriteLine("Enter your Initial Deposit");
 
@@ -103,7 +103,7 @@ namespace BankApplication.UI
                         amount = Console.ReadLine();
                     }
                     bankAccount.AccountBalance = Convert.ToDecimal(amount);
-                    Console.WriteLine("Awesome! Your current Account Was Successfully Created, Your Account details is:");
+                    Console.WriteLine("Awesome! Your current Account Was Successfully Created, Your Account details is: ");
                     Console.WriteLine("Account Number: {0}", accountNumber);
                     bankAccountService.CreateBankAccount(bankAccount);
                     Transaction transaction = new Transaction(bankAccount.Id, "Initial deposit", Convert.ToDecimal(amount), TransactionType.Deposit, DateTime.Now, bankAccount.AccountBalance);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankApplication.Utilities
 {
-    internal class AccountNumberGenerator
+    public class AccountNumberGenerator
     {
         public static string AccountGenerator()
         {
