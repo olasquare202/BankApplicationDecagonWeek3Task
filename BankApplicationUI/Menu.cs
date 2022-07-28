@@ -34,7 +34,7 @@ namespace BankApplicationUI
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void Buttons_Click(object sender, EventArgs e)
@@ -64,6 +64,11 @@ namespace BankApplicationUI
         {
             Transfer transfer = new Transfer(_customer);
             transfer.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
